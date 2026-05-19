@@ -1,7 +1,10 @@
 package partie3;
 
-public class MakroutCheck extends ArabicAbstractPastryCheck{
+public class MakroutCheck extends ArabicAbstractPastryCheck {
     protected MakroutCheck() {
-        super((a) -> new HoneyCheck().check(a) && new SemolinaCheck().check(a) && new BakedCheck().check(a));
+        super((a) -> true);
+        this.addNext(new SemolinaCheck());
+        this.addNext(new HoneyCheck());
+        this.addNext(new BakedCheck());
     }
 }

@@ -1,6 +1,6 @@
 package partie3;
 
-public abstract class ArabicAbstractPastryCheck{
+public abstract class ArabicAbstractPastryCheck {
     private Predicate predicate;
     private ArabicAbstractPastryCheck next;
 
@@ -8,11 +8,11 @@ public abstract class ArabicAbstractPastryCheck{
         this.predicate = predicate;
     }
 
-    public final boolean check(ArabicPastry pastry){
-        return this.predicate.matches(pastry);
+    public final boolean check(ArabicPastry pastry) {
+        return this.predicate.matches(pastry) && this.next.check(pastry);
     }
 
-    public void addNext(ArabicAbstractPastryCheck nextCheck){
+    public void addNext(ArabicAbstractPastryCheck nextCheck) {
         this.next = nextCheck;
     }
 }
